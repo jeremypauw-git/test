@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Azure Login
+      - name: az Login
         uses: Azure/login@v1
         with:
           client-id: 3d1d1285-0cc7-4f32-887a-77e8588bfd72
