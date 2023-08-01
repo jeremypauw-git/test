@@ -1,26 +1,31 @@
-# File: .github/workflows/OIDC_workflow.yml
-
-name: Run Azure Login with OIDC
-on: [push]
+name: Login to Azure
 
 permissions:
-      id-token: write
-      contents: read
-jobs: 
-  build-and-deploy:
+  id-token: write
+  contents: read
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  login:
     runs-on: ubuntu-latest
+
+    environment: Sandbox
+
     steps:
-      - name: Az CLI login
+      - uses: actions/checkout@v2
+
+      - name: 'Az CLI login'
         uses: azure/login@v1
         with:
-          client-id:3d1d1285-0cc7-4f32-887a-77e8588bfd72
-          tenant-id:ea88d832-15d0-4450-9dff-d24b21a3826d
-          subscription-id:7fb60c51-c5e8-4615-9ee0-48a66ace5fc2
-  
-      - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az account show
-            az group list
+          client-id: 3d1d1285-0cc7-4f32-887a-77e8588bfd72
+          tenant-id: ea88d832-15d0-4450-9dff-d24b21a3826d
+          subscription-id: 7fb60c51-c5e8-4615-9ee0-48a66ace5fc2
+
+      - name: Test Command 1
+        shell: bash
+        run: 
+          az group list -o table
+
