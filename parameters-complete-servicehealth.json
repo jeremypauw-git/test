@@ -3,27 +3,27 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "parPolicyPseudoRootMgmtGroup": {
-            "value": "alz"
+            "value": "hhs"
         },
         "parPolicyAssignmentParameters": {
             "value": {
                 "ALZMonitorResourceGroupName": {
-                    "value": "rg-alz-monitor"
+                    "value": "rg-tst-monitor-01"
                 },
                 "ALZMonitorResourceGroupTags": {
                     "value": {
-                        "Project": "alz-monitor"
+                        "Project": "alz-monitor baseline"
                     }
                 },
                 "ALZMonitorResourceGroupLocation": {
-                    "value": "eastus"
+                    "value": "west europe"
                 }
             }
         },
         "parPolicyAssignmentParametersServiceHealth": {
             "value": {
                 "ALZMonitorActionGroupEmail": {
-                    "value": "action@mail.com"
+                    "value": "azuremonitoring@hhs.nl"
                 },
                 "ResHlthUnhealthyAlertState": {
                     "value": "true"
