@@ -21,13 +21,13 @@ jobs:
     - name: Validate Bicep Template
       run: |
         az deployment group validate \
-          --resource-group <resource-group-name> \
+          --resource-group rg-tst-monitor-01 \
           --template-file <path-to-bicep-template>
 
     - name: Deploy Bicep Template
       run: |
         az deployment group create \
-          --resource-group <resource-group-name> \
+          --resource-group rg-tst-monitor-01 \
           --template-file <path-to-bicep-template> \
           --parameters @<path-to-parameters-file> \
           --mode Incremental
