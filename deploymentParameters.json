@@ -3,28 +3,28 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "parPolicyPseudoRootMgmtGroup": {
-            "value": "Contoso"
+            "value": "HHS"
         },
         "parPolicyAssignmentParameters": {
             "value": {
                 "ALZMonitorResourceGroupName": {
-                    "value": "rg-alz-monitor"
+                    "value": "rg-tst-monitor-01"
                 },
                 "ALZMonitorResourceGroupTags": {
                     "value": {
-                        "Environment": "Production",
-                        "Project": "ALZ Monitor"
+                        "Environment": "Test",
+                        "Project": "ALZ Monitor Baseline"
                     }
                 },
                 "ALZMonitorResourceGroupLocation": {
-                    "value": "eastus"
+                    "value": "westeurope"
                 }
             }
         },
         "parPolicyAssignmentParametersServiceHealth": {
             "value": {
                 "ALZMonitorActionGroupEmail": {
-                    "value": "action@mail.com"
+                    "value": "azuremonitor@hhs.nl"
                 }
             }
         }
