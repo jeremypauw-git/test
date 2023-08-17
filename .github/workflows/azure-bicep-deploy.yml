@@ -1,0 +1,29 @@
+name: Azure Bicep Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/setup-azure-cli@v1
+        with:
+          azcliversion: 2.28.0
+
+      - name: Login to Azure
+        run: az login --service-principal -u ${{ secrets.AZURE_SP_APP_ID }} -p ${{ secrets.AZURE_SP_PASSWORD }} --tenant ${{ secrets.AZURE_SP_TENANT }}
+
+      - name: Build and deploy Bicep template
+        run: |
+          cd path/to/bicep/templates
+          az deployment sub create --location westeurope --template-file main.bicep --parameters parameters.json
+
+      # Voer hier verdere stappen uit, zoals testen of validatie van de implementatie.
