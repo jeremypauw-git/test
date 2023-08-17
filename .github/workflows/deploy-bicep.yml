@@ -1,0 +1,33 @@
+name: Deploy Bicep Template
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Validate Bicep Template
+      run: |
+        az deployment group validate \
+          --resource-group rg-tst-monitor-01 \
+          --template-file <path-to-bicep-template>
+
+    - name: Deploy Bicep Template
+      run: |
+        az deployment group create \
+          --resource-group rg-tst-monitor-01 \
+          --template-file <path-to-bicep-template> \
+          --parameters @<path-to-parameters-file> \
+          --mode Incremental
