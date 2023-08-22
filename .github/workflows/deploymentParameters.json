@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "parPolicyPseudoRootMgmtGroup": {
+            "value": "HHS
+        },
+        "parPolicyAssignmentParameters": {
+            "value": {
+                "ALZMonitorResourceGroupName": {
+                    "value": "rg-tst-mgt-01"
+                },
+                "ALZMonitorResourceGroupTags": {
+                    "value": {
+                        "Environment": "Test",
+                        "Project": "ALZ Monitor"
+                    }
+                },
+                "ALZMonitorResourceGroupLocation": {
+                    "value": "westeurope"
+                }
+            }
+        },
+        "parPolicyAssignmentParametersServiceHealth": {
+            "value": {
+                "ALZMonitorActionGroupEmail": {
+                    "value": "azuremonitoring@hhs.nl"
+                }
+            }
+        }
+    }
+}
